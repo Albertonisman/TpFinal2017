@@ -1,4 +1,4 @@
-TP Final
+TP Final Alumnos: Francisco Grandin, Lautaro Martin.
 
 [![Coverage Status](https://coveralls.io/repos/github/dagostinoips/TpFinal2017/badge.svg?branch=master)](https://coveralls.io/github/dagostinoips/TpFinal2017?branch=master)
 
