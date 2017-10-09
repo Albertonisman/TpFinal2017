@@ -13,6 +13,6 @@ class EstacionTest extends TestCase {
         $tarjeta = new Tarjeta;
         $recarga = 50;
         $this->assertEquals($tarjeta->saldo($recarga), 50);
-        $this->assertEquals($tarjeta->saldo(332),388);
+        $this->assertEquals($tarjeta->saldotarjeta+388,$tarjeta->saldo(332));
     }
 }
