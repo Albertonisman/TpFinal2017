@@ -6,7 +6,7 @@ class Tarjeta {
     Protected $saldotarjeta;
     Protected $ult_colectivo = 0;
     public function saldo($a) {
-        if ($a=332) {
+        if ($a==332) {
                 $this->saldotarjeta = $this->saldotarjeta + 388;
             }
         else {
