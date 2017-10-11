@@ -10,7 +10,7 @@ class Tarjeta {
                 $this->saldotarjeta = $this->saldotarjeta + 388;
             }
         else {
-                $this->$saldotarjeta = $this->$saldotarjeta + $a;
+                $this->$saldotarjeta = $this->saldotarjeta + $a;
             }
         return 0;
     }
