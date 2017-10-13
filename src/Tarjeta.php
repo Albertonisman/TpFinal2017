@@ -3,7 +3,7 @@
 namespace TpFinal;
 
 class Tarjeta {
-    public $saldotarjeta;
+    public $saldotarjeta = 0;
     public $ult_colectivo = 0;
     public function saldo($a) {
         if ($a==332) {
