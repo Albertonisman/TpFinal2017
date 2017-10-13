@@ -3,8 +3,8 @@
 namespace TpFinal;
 
 class Tarjeta {
-    Public $saldotarjeta;
-    Public $ult_colectivo = 0;
+    public $saldotarjeta;
+    public $ult_colectivo = 0;
     public function saldo($a) {
         if ($a==332) {
                 $this->saldotarjeta = $this->saldotarjeta + 388;
