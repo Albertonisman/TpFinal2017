@@ -3,32 +3,35 @@
 namespace TpFinal;
 
 class Tarjeta {
-    protected $saldotarjeta = 0;
+    protected $saldo_tarjeta = 0;
     protected $ult_colectivo = 0;
     public function reiniciosaldo() {
-        $this->saldotarjeta = 0;
+        $this->saldo_tarjeta = 0;
+    }
+    public function saldotarjeta() {
+        return $this->saldo_tarjeta;
     }
     public function saldo($a) {
         if ($a==332) {
-                $this->saldotarjeta = $this->saldotarjeta + 388;
+                $this->saldo_tarjeta = $this->saldo_tarjeta + 388;
             }
         else {
-                $this->saldotarjeta = $this->saldotarjeta + $a;
+                $this->saldo_tarjeta = $this->saldo_tarjeta + $a;
             }
         return 0;
     }
     public function viaje ($id){
         if($this->ult_colectivo == $id || $this->ult_colectivo == 0) {
-            $this->saldotarjeta = $this->saldotarjeta - 9.75;
+            $this->saldo_tarjeta = $this->saldo_tarjeta - 9.75;
             $this->ult_colectivo = $id;
         }
         else {
-            $this->saldotarjeta = $this->saldotarjeta - 3.20;
+            $this->saldo_tarjeta = $this->saldo_tarjeta - 3.20;
         }
         
     }
     public function alquilerbici() {
-        $this->saldotarjeta = $this->saldotarheta - 14.625;
+        $this->saldo_tarjeta = $this->saldotarheta - 14.625;
         $dia = date("F j, Y");
     }
 }
