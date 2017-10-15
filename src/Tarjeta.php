@@ -31,7 +31,7 @@ class Tarjeta {
         
     }
     public function alquilerbici() {
-        $this->saldo_tarjeta = $this->saldotarjeta - 14.625;
+        $this->saldo_tarjeta = $this->saldo_tarjeta - 14.625;
         $dia = date("F j, Y");
     }
 }
