@@ -5,6 +5,7 @@ namespace TpFinal;
 class Tarjeta {
     protected $saldo_tarjeta = 0;
     protected $ult_colectivo = 0;
+    protected $dia;
     public function reiniciosaldo() {
         $this->saldo_tarjeta = 0;
     }
@@ -31,7 +32,9 @@ class Tarjeta {
         
     }
     public function alquilerbici() {
-        $this->saldo_tarjeta = $this->saldo_tarjeta - 14.625;
-        $dia = date("F j, Y");
+        if($this->dia != date("F j, Y")) {
+            $this->saldo_tarjeta = $this->saldo_tarjeta - 14.625;
+            $this->dia = date("F j, Y");
+        }
     }
 }
