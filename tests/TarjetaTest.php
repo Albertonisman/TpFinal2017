@@ -15,6 +15,8 @@ class EstacionTest extends TestCase {
         $this->assertEquals($tarjeta->saldotarjeta(), 50);
         //Reinicio la carga en la tarjeta para simplificar los test
         $tarjeta->reiniciosaldo();
+        $tarjeta->saldo(624);
+        $this->assertEquals($tarjeta->saldotarjeta(),776);
         $tarjeta->saldo(332);
         $this->assertEquals($tarjeta->saldotarjeta(),388);
         $tarjeta->viaje(145);
