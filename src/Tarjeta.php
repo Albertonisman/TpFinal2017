@@ -17,7 +17,12 @@ class Tarjeta {
                 $this->saldo_tarjeta = $this->saldo_tarjeta + 388;
             }
         else {
-                $this->saldo_tarjeta = $this->saldo_tarjeta + $a;
+                if($a==624) {
+                    $this->saldo_tarjeta = $this->saldo_tarjeta + 776;
+                }
+                else {
+                    $this->saldo_tarjeta = $this->saldo_tarjeta + $a;
+                }
             }
         return 0;
     }
