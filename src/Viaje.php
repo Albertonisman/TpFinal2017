@@ -1,6 +1,6 @@
 <?php
 
-namespace tpFinal;
+namespace TpFinal;
 
 class Viaje {
     protected $tipo; //Colectivo o bici
