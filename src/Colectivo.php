@@ -10,7 +10,7 @@ class Colectivo {
     }
     
     public function __construct ($linea) {
-        $this-linea = $linea;
+        $this->linea = $linea;
     }
 }
 
