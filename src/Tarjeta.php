@@ -8,7 +8,7 @@ class Tarjeta {
     protected $dia;
     public function reiniciosaldo() {
         $this->saldo = 0;
-        $this->ult_viaje = new viaje("-",0,"-");
+        $this->ult_viaje = new Viaje("-",0,"-");
     }
     public function saldotarjeta() {
         return $this->saldo;
@@ -30,11 +30,11 @@ class Tarjeta {
     public function viaje ($id){
         if($this->ult_viaje->transporte == $id || $this->ult_viaje->trasporte == "-") {
             $this->saldo = $this->saldo - 9.75;
-            $this->ult_viaje = new viaje("Colectivo", 9.75, $id);
+            $this->ult_viaje = new Viaje("Colectivo", 9.75, $id);
         }
         else {
             $this->saldo = $this->saldo - 3.20;
-            $this->ult_viaje = new viaje("Colectivo", 3.20, $id);
+            $this->ult_viaje = new Viaje("Colectivo", 3.20, $id);
         }
         
     }
