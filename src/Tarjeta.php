@@ -6,7 +6,7 @@ include 'Viaje.php';
 
 class Tarjeta {
     protected $saldo = 0;
-    protected $ultimo_colectivo = 0;
+    protected $ult_colectivo = 0;
     protected $ult_viaje;
     protected $dia;
     public function reiniciosaldo() {
