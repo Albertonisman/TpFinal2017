@@ -8,9 +8,12 @@ class Tarjeta {
     protected $saldo = 0;
     protected $ult_viaje;
     protected $dia;
+    public function __construct(){
+    	$this->saldo = 0;
+        $this->ult_viaje = new Viaje("-",0,"-");
+    }
     public function reiniciosaldo() {
         $this->saldo = 0;
-        $this->ult_viaje = new Viaje("-",0,"-");
     }
     public function saldotarjeta() {
         return $this->saldo;
@@ -47,3 +50,4 @@ class Tarjeta {
         }
     }
 }
+
