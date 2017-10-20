@@ -11,6 +11,7 @@ class Tarjeta {
     protected $dia;
     public function reiniciosaldo() {
         $this->saldo = 0;
+        $this->ult_colectivo = 0;
     }
     public function saldotarjeta() {
         return $this->saldo;
