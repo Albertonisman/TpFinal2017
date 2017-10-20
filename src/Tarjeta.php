@@ -6,17 +6,17 @@ include 'Viaje.php';
 
 class Tarjeta {
     protected $saldo = 0;
+    protected $ultimo_colectivo = 0;
     protected $ult_viaje;
     protected $dia;
-    public function __construct(){
-    	$this->saldo = 0;
-        $this->ult_viaje = new Viaje("-",0,"-");
-    }
     public function reiniciosaldo() {
         $this->saldo = 0;
     }
     public function saldotarjeta() {
         return $this->saldo;
+    }
+    public function ultimo_viaje() {
+    	return $this->ult_viaje->obtener_trasporte();
     }
     public function cargar_saldo($a) {
         if ($a==332) {
@@ -32,14 +32,14 @@ class Tarjeta {
             }
         return 0;
     }
-    public function viaje ($id){
-        if($this->ult_viaje->transporte() == $id || $this->ult_viaje->obtener_trasporte() == "-") {
+    public function viaje ($Trasporte){
+        if($this->ult_colectivo == $id || $this->ult_colectivo == 0) {
             $this->saldo = $this->saldo - 9.75;
-            $this->ult_viaje = new Viaje("Colectivo", 9.75, $id);
+            $this->ult_viaje = new Viaje("Normal", 9.75, $id);
         }
         else {
             $this->saldo = $this->saldo - 3.20;
-            $this->ult_viaje = new Viaje("Colectivo", 3.20, $id);
+            $this->ult_viaje = new Viaje("Trasbordo", 3.20, $id);
         }
         
     }
