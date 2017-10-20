@@ -2,6 +2,8 @@
 
 namespace TpFinal;
 
+include 'Viaje.php';
+
 class Tarjeta {
     protected $saldo = 0;
     protected $ult_viaje;
@@ -28,7 +30,7 @@ class Tarjeta {
         return 0;
     }
     public function viaje ($id){
-        if($this->ult_viaje->trasporte == $id || $this->ult_viaje->obtener_trasporte() == "-") {
+        if($this->ult_viaje->transporte() == $id || $this->ult_viaje->obtener_trasporte() == "-") {
             $this->saldo = $this->saldo - 9.75;
             $this->ult_viaje = new Viaje("Colectivo", 9.75, $id);
         }
