@@ -35,7 +35,7 @@ class Tarjeta {
     }
     public function viaje ($Trasporte){
         $Time = time();
-        if(string get_class ([ object $Trasporte = NULL ] ) == 'Colectivo') {
+        if(is_a($Transporte, 'Colectivo') {
             if($this->ult_colectivo == $Trasporte || $this->ult_colectivo == 0) {
                 $this->saldo = $this->saldo - 9.75;
                 $this->ult_viaje = new Viaje("Normal", 9.75, $Trasporte);
