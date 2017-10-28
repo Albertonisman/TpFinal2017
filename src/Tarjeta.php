@@ -34,21 +34,26 @@ class Tarjeta {
         return 0;
     }
     public function viaje ($Trasporte){
-        if($this->ult_colectivo == $Trasporte || $this->ult_colectivo == 0) {
-            $this->saldo = $this->saldo - 9.75;
-            $this->ult_viaje = new Viaje("Normal", 9.75, $Trasporte);
+        $Time = time();
+        if(string get_class ([ object $Trasporte = NULL ] ) == 'Colectivo') {
+            if($this->ult_colectivo == $Trasporte || $this->ult_colectivo == 0) {
+                $this->saldo = $this->saldo - 9.75;
+                $this->ult_viaje = new Viaje("Normal", 9.75, $Trasporte);
+            }
+        
+            else {
+                $this->saldo = $this->saldo - 3.20;
+                $this->ult_viaje = new Viaje("Trasbordo", 3.20, $Trasporte);
+                $this->ult_colectivo = $Trasporte;
+            }
         }
         else {
-            $this->saldo = $this->saldo - 3.20;
-            $this->ult_viaje = new Viaje("Trasbordo", 3.20, $Trasporte);
+            if($this->dia != date("F j, Y")) {
+                $this->saldo = $this->saldo - 14.625;
+                $this->dia = date("F j, Y");
         }
-        $this->ult_colectivo = $Trasporte;
-    }
-    public function alquilerbici() {
-        if($this->dia != date("F j, Y")) {
-            $this->saldo = $this->saldo - 14.625;
-            $this->dia = date("F j, Y");
         }
-    }
+        }
+
 }
 
