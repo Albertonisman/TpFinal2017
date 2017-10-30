@@ -16,7 +16,6 @@ class Tarjeta {
     public function saldotarjeta() {
         return $this->saldo;
     }
-    }
     public function cargar_saldo($a) {
         if ($a==332) {
                 $this->saldo = $this->saldo + 388;
