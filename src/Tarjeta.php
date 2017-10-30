@@ -3,6 +3,8 @@
 namespace TpFinal;
 
 include 'Viaje.php';
+include 'Colectivo.php';
+include 'Bicicleta.php';
 
 class Tarjeta {
     protected $saldo = 0;
