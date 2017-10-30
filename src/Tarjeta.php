@@ -34,7 +34,7 @@ class Tarjeta {
     }
     public function viaje ($Transporte){
         $Time = time();
-        if(is_a($Transporte, 'Colectivo')) {
+        if(is_a($Transporte, 'Colectivo ')) {
             if($this->ult_colectivo == $Transporte || $this->ult_colectivo == 0) {
                 $this->saldo = $this->saldo - 9.75;
                 array_unshift(($this->viajes_realizados), new Viaje("Normal", 9.75, $Transporte));
