@@ -8,7 +8,7 @@ include 'Bicicleta.php';
 
 class Tarjeta {
     protected $saldo = 0;
-    protected $ult_colectivo = 0;
+    protected $ult_colectivo;
     protected $viajes_realizados = array();
     protected $dia;
     public function reiniciosaldo() {
@@ -35,7 +35,7 @@ class Tarjeta {
     public function viaje ($Transporte){
         $Time = time();
         if(get_class($Transporte) == 'TpFinal\Colectivo') {
-            if($this->ult_colectivo == $Transporte || $this->ult_colectivo == 0) {
+            if($this->ult_colectivo->obtener_linea() == $Transporte->obtener_linea() || is_null($this->ult_colectivo)) {
                 $this->saldo = $this->saldo - 9.75;
                 array_unshift(($this->viajes_realizados), new Viaje("Normal", 9.75, $Transporte));
             }
