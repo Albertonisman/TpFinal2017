@@ -37,7 +37,7 @@ class EstacionTest extends TestCase {
         //Reinicio la carga en la tarjeta para simplificar los test
         $tarjeta->reiniciosaldo();
         //Ahora hacemos 1 viaje un transbordo y pagar un viaje a otra persona (9.75+ 3.2 + 9.75)
-        $tarjeta->cargar_saldo($c100);
+        $tarjeta->cargar_saldo($100);
         $tarjeta->viaje($c139);
         $tarjeta->viaje($c145);
         $tarjeta->viaje($c145);
