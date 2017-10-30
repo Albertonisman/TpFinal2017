@@ -35,7 +35,7 @@ class Tarjeta {
     public function viaje ($Transporte){
         $Time = time();
         if(get_class($Transporte) == 'TpFinal\Colectivo') {
-            if($this->ult_colectivo->obtener_linea() == $Transporte->obtener_linea() || is_null($this->ult_colectivo)) {
+            if(is_null($this->ult_colectivo || $this->ult_colectivo->obtener_linea() == $Transporte->obtener_linea())) {
                 $this->saldo = $this->saldo - 9.75;
                 array_unshift(($this->viajes_realizados), new Viaje("Normal", 9.75, $Transporte));
             }
