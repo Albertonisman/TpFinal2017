@@ -32,28 +32,28 @@ class Tarjeta {
             }
         return 0;
     }
-    public function viaje ($Trasporte){
+    public function viaje ($Transporte){
         $Time = time();
         if(is_a($Transporte, 'Colectivo')) {
-            if($this->ult_colectivo == $Trasporte || $this->ult_colectivo == 0) {
+            if($this->ult_colectivo == $Transporte || $this->ult_colectivo == 0) {
                 $this->saldo = $this->saldo - 9.75;
-                array_unshift(($this->viajes_realizados), new Viaje("Normal", 9.75, $Trasporte));
+                array_unshift(($this->viajes_realizados), new Viaje("Normal", 9.75, $Transporte));
             }
         
             else {
                 $this->saldo = $this->saldo - 3.20;
-                array_unshift($this->viajes_realizados, new Viaje("Trasbordo", 3.20, $Trasporte));
-                $this->ult_colectivo = $Trasporte;
+                array_unshift($this->viajes_realizados, new Viaje("Trasbordo", 3.20, $Transporte));
+                $this->ult_colectivo = $Transporte;
             }
         }
         else {
             if($this->dia != date("F j, Y")) {
                 $this->saldo = $this->saldo - 14.625;
                 $this->dia = date("F j, Y");
-                array_unshift($this->viajes_realizados, new Viaje("Bicicleta", 14.625, $Trasporte));
+                array_unshift($this->viajes_realizados, new Viaje("Bicicleta", 14.625, $Transporte));
             }
             else {
-                array_unshift($this->viajes_realizados, new Viaje("Bicicleta", 0.0, $Trasporte));
+                array_unshift($this->viajes_realizados, new Viaje("Bicicleta", 0.0, $Transporte));
             }
         }
     }
