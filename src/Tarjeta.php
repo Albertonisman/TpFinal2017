@@ -48,7 +48,7 @@ class Tarjeta {
                 if($this->saldo > 9.75){
                     if($this->plus > 0) {
                         $this->saldo = $this->saldo - (9.75 + 9.75*$this->plus) ;
-                        array_unshift(($this->viajes_realizados), new Viaje("Normal", 9.75+9.75*$this->plus, $Transporte->obtener_linea()),$f); 
+                        array_unshift(($this->viajes_realizados), new Viaje("Normal", 9.75+9.75*$this->plus, $Transporte->obtener_linea(),$f)); 
                     } 
                     else {
                         $this->saldo = $this->saldo - 9.75;
@@ -76,7 +76,7 @@ class Tarjeta {
                     if($this->saldo > 9.75){
                         if($this->plus > 0) {
                             $this->saldo = $this->saldo - (9.75 + 9.75*$this->plus) ;
-                            array_unshift(($this->viajes_realizados), new Viaje("Normal", 9.75+9.75*$this->plus, $Transporte->obtener_linea()),$f); 
+                            array_unshift(($this->viajes_realizados), new Viaje("Normal", 9.75+9.75*$this->plus, $Transporte->obtener_linea(),$f)); 
                         } 
                         else {
                             $this->saldo = $this->saldo - 9.75;
