@@ -36,8 +36,7 @@ class Tarjeta {
             }
         return 0;
     }
-    public function viaje ($Transporte){
-        $Time = time();
+    public function viaje ($Transporte, $fecha){
         if(get_class($Transporte) == 'TpFinal\Colectivo') {
             if(is_null($this->ult_colectivo)) {
                 if($this->saldo > 9.75){
@@ -63,7 +62,7 @@ class Tarjeta {
                 $this->ult_colectivo = $Transporte;
             }
             else {
-                if( $this->ult_colectivo->obtener_linea() == $Transporte->obtener_linea()){
+                if( $this->ult_colectivo->obtener_linea() == $Transporte->obtener_linea() || date_diff($fecha,$this->dia)>mktime(1, 0, 0, 0, 0)) {
                     $this->saldo = $this->saldo - 9.75;
                     array_unshift(($this->viajes_realizados), new Viaje("Normal", 9.75, $Transporte->obtener_linea()));
                 }
@@ -75,9 +74,9 @@ class Tarjeta {
             }
         }
         else {
-            if($this->dia != date("F j, Y")) {
+            if($this->dia != $fecha) {
                 $this->saldo = $this->saldo - 14.625;
-                $this->dia = date("F j, Y");
+                $this->dia = $fecha;
                 array_unshift($this->viajes_realizados, new Viaje("Bicicleta", 14.625, $Transporte->obtener_matricula()));
             }
             else {
@@ -86,5 +85,3 @@ class Tarjeta {
         }
     }
 }
-
-
