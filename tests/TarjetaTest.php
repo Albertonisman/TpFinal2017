@@ -29,7 +29,7 @@ class EstacionTest extends TestCase {
         $tarjeta->viaje($c145,'01/01/2017 20:00');
         $this->assertEquals($tarjeta->saldotarjeta(),100-9.75);
         //Hago un segundo viaje en el mimso colectivo
-        $tarjeta->viaje($c145,'01/01/2017 20:00');
+        $tarjeta->viaje($c145,'01/01/2017 20:10');
         $this->assertEquals($tarjeta->saldotarjeta(),100-19.50);
         //Ahora hago un transbordo
         $tarjeta->viaje($c133,'01/01/2017 20:30');
