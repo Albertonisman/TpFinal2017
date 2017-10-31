@@ -9,7 +9,7 @@ include 'Bicicleta.php';
 class Tarjeta {
     protected $saldo = 0;
     protected $ult_colectivo;
-    public $viajes_realizados = array();
+    protected $viajes_realizados = array();
     protected $dia = 0;
     protected $dia_colectivo;
     protected $plus = 0;
@@ -22,6 +22,9 @@ class Tarjeta {
     }
     public function plusTarjeta() {
         return $this->plus;
+    }
+    public function viajes_r() {
+        return $this->viajes_realizados;
     }
     public function cargar_saldo($a) {
         if ($a==332) {
