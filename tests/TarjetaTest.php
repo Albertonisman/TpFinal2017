@@ -5,16 +5,16 @@ namespace TpFinal;
 use PHPUnit\Framework\TestCase;
 
 class EstacionTest extends TestCase {
+    protected $tarjeta;
+    protected $c145;
+    protected $c133;
+    protected $c139;
+    protected $bici;
     public function setUp() {
-        protected $tarjeta;
         $this->tarjeta = new Tarjeta();
-        protected $c145;
         $this->c145 = new Colectivo(145);
-        protected $c133;
         $this->c133 = new Colectivo(133); 
-        protected $c139;
         $this->c139 = new Colectivo(139);
-        protected $bici;
         $this->bici = new Bicicleta(1234);
     }
 
