@@ -46,6 +46,7 @@ class EstacionTest extends TestCase {
         $tarjeta->cargar_saldo(100);
         //Alquilo una bici
         $bici = new Bicicleta(1234);
+        $this->assertEquals($bici->obtener_matricula(),1234);
         $tarjeta->viaje($bici,'02/01/2017 20:00');
         $this->assertEquals($tarjeta->saldotarjeta(),100-14.625);
         $tarjeta->viaje($bici,'01/01/2017 21:00');
