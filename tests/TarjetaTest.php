@@ -43,7 +43,7 @@ class EstacionTest extends TestCase {
         $v = $this->tarjeta->viajes_r();
         $this->assertEquals($v[0]->obtener_tipo(),'Normal');
         $this->assertEquals($v[0]->obtener_monto(),9.75);
-        $this->assertEquals($v[0]->obtener_transporte(),145);
+        $this->assertEquals($v[0]->obtener_transporte(),139);
         $this->assertEquals($v[0]->obtener_fecha_y_hora(),'01/01/2017 23:00');
     }
     public function testDosViajes() {
