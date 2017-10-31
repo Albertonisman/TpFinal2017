@@ -64,14 +64,14 @@ class Tarjeta {
                 $this->ult_colectivo = $Transporte;
             }
             else {
-                if( $this->ult_colectivo->obtener_linea() == $Transporte->obtener_linea() || ($fecha-strtotime($this->dia_colectivo))>3600 ) {
-                    $this->saldo = $this->saldo - 9.75;
-                    array_unshift(($this->viajes_realizados), new Viaje("Normal", 9.75, $Transporte->obtener_linea()));
-                }
-                else {
+                if( $this->ult_colectivo->obtener_linea() != $Transporte->obtener_linea() && ($fecha-strtotime($this->dia_colectivo))<3600 ) {
                     $this->saldo = $this->saldo - 3.20;
                     array_unshift($this->viajes_realizados, new Viaje("Trasbordo", 3.20, $Transporte->obtener_linea()));
                     $this->ult_colectivo = $Transporte;
+                }
+                else {
+                    $this->saldo = $this->saldo - 9.75;
+                    array_unshift(($this->viajes_realizados), new Viaje("Normal", 9.75, $Transporte->obtener_linea())); 
                 }
             }
             $this->dia_colectivo = $fecha;    
