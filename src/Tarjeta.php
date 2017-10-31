@@ -11,6 +11,7 @@ class Tarjeta {
     protected $ult_colectivo;
     protected $viajes_realizados = array();
     protected $dia;
+    protected $dia_colectivo;
     protected $plus = 0;
     public function reiniciosaldo() {
         $this->saldo = 0;
@@ -63,7 +64,7 @@ class Tarjeta {
                 $this->ult_colectivo = $Transporte;
             }
             else {
-                if( $this->ult_colectivo->obtener_linea() == $Transporte->obtener_linea() || ($fecha-strtotime($this->dia))>3600 ) {
+                if( $this->ult_colectivo->obtener_linea() == $Transporte->obtener_linea() || ($fecha-strtotime($this->dia_colectivo))>3600 ) {
                     $this->saldo = $this->saldo - 9.75;
                     array_unshift(($this->viajes_realizados), new Viaje("Normal", 9.75, $Transporte->obtener_linea()));
                 }
@@ -73,6 +74,7 @@ class Tarjeta {
                     $this->ult_colectivo = $Transporte;
                 }
             }
+            $this->dia_colectivo = $fecha;    
         }
         else {
             if($this->dia != $fecha) {

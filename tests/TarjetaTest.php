@@ -32,23 +32,23 @@ class EstacionTest extends TestCase {
         $tarjeta->viaje($c145,'01/01/2017 20:00');
         $this->assertEquals($tarjeta->saldotarjeta(),100-19.50);
         //Ahora hago un transbordo
-        $tarjeta->viaje($c133,'01/01/2017 20:00');
+        $tarjeta->viaje($c133,'01/01/2017 20:30');
         $this->assertEquals($tarjeta->saldotarjeta(),100-22.70);
         //Reinicio la carga en la tarjeta para simplificar los test
         $tarjeta->reiniciosaldo();
         //Ahora hacemos 1 viaje un transbordo y pagar un viaje a otra persona (9.75+ 3.2 + 9.75)
         $tarjeta->cargar_saldo(100);
-        $tarjeta->viaje($c139,'01/01/2017 20:00');
-        $tarjeta->viaje($c145,'01/01/2017 20:00');
-        $tarjeta->viaje($c145,'01/01/2017 20:00');
+        $tarjeta->viaje($c139,'01/01/2017 23:00');
+        $tarjeta->viaje($c145,'01/01/2017 23:10');
+        $tarjeta->viaje($c145,'01/01/2017 23:11');
         $this->assertEquals($tarjeta->saldotarjeta(),100-22.70);
         $tarjeta->reiniciosaldo();
         $tarjeta->cargar_saldo(100);
         //Alquilo una bici
         $bici = new Bicicleta(1234);
-        $tarjeta->viaje($bici,'01/01/2017 20:00');
+        $tarjeta->viaje($bici,'02/01/2017 20:00');
         $this->assertEquals($tarjeta->saldotarjeta(),100-14.625);
-        $tarjeta->viaje($bici,'01/01/2017 20:00');
+        $tarjeta->viaje($bici,'01/01/2017 21:00');
         $this->assertEquals($tarjeta->saldotarjeta(),100-14.625);
     }
 }
