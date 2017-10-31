@@ -63,7 +63,7 @@ class Tarjeta {
                 $this->ult_colectivo = $Transporte;
             }
             else {
-                if( $this->ult_colectivo->obtener_linea() == $Transporte->obtener_linea() || date_diff($fecha,$this->dia)>mktime(1, 0, 0, 0, 0)) {
+                if( $this->ult_colectivo->obtener_linea() == $Transporte->obtener_linea() || ($fecha-strtotime($this->dia))>3600 ) {
                     $this->saldo = $this->saldo - 9.75;
                     array_unshift(($this->viajes_realizados), new Viaje("Normal", 9.75, $Transporte->obtener_linea()));
                 }
@@ -87,3 +87,5 @@ class Tarjeta {
     }
 }
 
+echo strtotime('01/01/2017 20:00');
+echo time();
