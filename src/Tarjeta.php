@@ -37,6 +37,7 @@ class Tarjeta {
         return 0;
     }
     public function viaje ($Transporte, $fecha){
+        $fecha = strtotime($fecha);
         if(get_class($Transporte) == 'TpFinal\Colectivo') {
             if(is_null($this->ult_colectivo)) {
                 if($this->saldo > 9.75){
@@ -85,3 +86,4 @@ class Tarjeta {
         }
     }
 }
+
