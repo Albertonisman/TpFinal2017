@@ -11,12 +11,16 @@ class Tarjeta {
     protected $ult_colectivo;
     protected $viajes_realizados = array();
     protected $dia;
+    protected $plus = 0;
     public function reiniciosaldo() {
         $this->saldo = 0;
         $this->ult_colectivo = NULL;
     }
     public function saldotarjeta() {
         return $this->saldo;
+    }
+    public function plusTarjeta() {
+        return $this->plus;
     }
     public function cargar_saldo($a) {
         if ($a==332) {
@@ -36,18 +40,36 @@ class Tarjeta {
         $Time = time();
         if(get_class($Transporte) == 'TpFinal\Colectivo') {
             if(is_null($this->ult_colectivo)) {
-                $this->saldo = $this->saldo - 9.75;
-                array_unshift(($this->viajes_realizados), new Viaje("Normal", 9.75, $Transporte));
+                if($this->saldo > 9.75){
+                    if($this->plus > 0) {
+                        $this->saldo = $this->saldo - (9.75 + 9.75*$this->plus) ;
+                        array_unshift(($this->viajes_realizados), new Viaje("Normal", 9.75+9.75*$this->plus, $Transporte->obtener_linea())); 
+                    } 
+                    else {
+                        $this->saldo = $this->saldo - 9.75;
+                        array_unshift(($this->viajes_realizados), new Viaje("Normal", 9.75, $Transporte->obtener_linea())); 
+                    }
+                }
+                else {
+                    if($this->plus < 2) {
+                        $this->plus = $this->plus + 1;
+                        array_unshift(($this->viajes_realizados), new Viaje("Plus " .  ($this->plus+1), 9.75, $Transporte->obtener_linea()));
+                    }
+                    else {
+                        print ("No puede realizar el viaje"); //no se me ocurre otra forma de hacerlo mejor si no pude realizar el viaje 
+                    }
+                }
+                
                 $this->ult_colectivo = $Transporte;
             }
             else {
                 if( $this->ult_colectivo->obtener_linea() == $Transporte->obtener_linea()){
                     $this->saldo = $this->saldo - 9.75;
-                    array_unshift(($this->viajes_realizados), new Viaje("Normal", 9.75, $Transporte));
+                    array_unshift(($this->viajes_realizados), new Viaje("Normal", 9.75, $Transporte->obtener_linea()));
                 }
                 else {
                     $this->saldo = $this->saldo - 3.20;
-                    array_unshift($this->viajes_realizados, new Viaje("Trasbordo", 3.20, $Transporte));
+                    array_unshift($this->viajes_realizados, new Viaje("Trasbordo", 3.20, $Transporte->obtener_linea()));
                     $this->ult_colectivo = $Transporte;
                 }
             }
@@ -56,7 +78,7 @@ class Tarjeta {
             if($this->dia != date("F j, Y")) {
                 $this->saldo = $this->saldo - 14.625;
                 $this->dia = date("F j, Y");
-                array_unshift($this->viajes_realizados, new Viaje("Bicicleta", 14.625, $Transporte));
+                array_unshift($this->viajes_realizados, new Viaje("Bicicleta", 14.625, $Transporte->obtener_matricula()));
             }
             else {
                 array_unshift($this->viajes_realizados, new Viaje("Bicicleta", 0.0, $Transporte));
