@@ -56,7 +56,7 @@ class Tarjeta {
                     }
                 }
                 else {
-                    if($this->plus < 2) {
+                    if($this->plus <= 2) {
                         $this->plus = $this->plus + 1;
                         array_unshift(($this->viajes_realizados), new Viaje("Plus " .  ($this->plus+1), 9.75, $Transporte->obtener_linea(),$f));
                     }
