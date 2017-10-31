@@ -9,7 +9,7 @@ include 'Bicicleta.php';
 class Tarjeta {
     protected $saldo = 0;
     protected $ult_colectivo;
-    protected $viajes_realizados = array();
+    public $viajes_realizados = array();
     protected $dia = 0;
     protected $dia_colectivo;
     protected $plus = 0;
