@@ -36,8 +36,10 @@ class EstacionTest extends TestCase {
         $this->assertEquals($this->tarjeta->saldotarjeta(),776);
     }
     public function testUnViaje() {
+        $this->tarjeta->reiniciosaldo();
+        $this->tarjeta->cargar_saldo(100);
         $this->tarjeta->viaje($this->c139,'01/01/2017 23:00');
-        $this->assertEquals($this->tarjeta->saldotarjeta(),776-9.75);
+        $this->assertEquals($this->tarjeta->saldotarjeta(),100-9.75);
         $v = $this->tarjeta->viajes_r();
         $this->assertEquals($v[0]->obtener_tipo(),'Normal');
         $this->assertEquals($v[0]->obtener_monto(),9.75);
