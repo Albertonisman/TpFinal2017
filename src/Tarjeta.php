@@ -89,5 +89,3 @@ class Tarjeta {
     }
 }
 
-echo strtotime('01/01/2017 20:00');
-echo time();
