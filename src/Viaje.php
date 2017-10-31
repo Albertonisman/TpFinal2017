@@ -19,9 +19,10 @@ class Viaje {
     public function obtener_fecha_y_hora() {
         return $this->fecha_y_hora;
     }
-    public function __construct ($tipo, $monto, $transporte) {
+    public function __construct ($tipo, $monto, $transporte, $fecha) {
         $this->tipo=$tipo;
         $this->monto=$monto;
         $this->transporte=$transporte;
+        $this->fecha_y_hora=$fecha;
     }
 }
