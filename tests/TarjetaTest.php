@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 
 class EstacionTest extends TestCase {
     public function SetUp() {
-        protected $tarjeta = new Tarjeta;
+        protected $tarjeta = new Tarjeta();
         protected $c145 = new Colectivo(145);
         protected $c133 = new Colectivo(133); 
         protected $c139 = new Colectivo(139);
