@@ -10,7 +10,7 @@ class Tarjeta {
     protected $saldo = 0;
     protected $ult_colectivo;
     protected $viajes_realizados = array();
-    protected $dia;
+    protected $dia = 0;
     protected $dia_colectivo;
     protected $plus = 0;
     public function reiniciosaldo() {
