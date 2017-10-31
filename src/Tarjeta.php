@@ -77,7 +77,7 @@ class Tarjeta {
             $this->dia_colectivo = $fecha;    
         }
         else {
-            if(($fecha-strtotime($this->dia))>86400) {
+            if(($fecha-$this->dia)>86400) {
                 $this->saldo = $this->saldo - 14.625;
                 $this->dia = $fecha;
                 array_unshift($this->viajes_realizados, new Viaje("Bicicleta", 14.625, $Transporte->obtener_matricula()));
