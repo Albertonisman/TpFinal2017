@@ -73,26 +73,26 @@ class Tarjeta {
                     $this->ult_colectivo = $Transporte;
                 }
                 else {
-                    if($this->plus > 0) {
-                        $this->saldo = $this->saldo - (9.75 + 9.75*$this->plus) ;
-                        array_unshift(($this->viajes_realizados), new Viaje("Normal", 9.75+9.75*$this->plus, $Transporte->obtener_linea()),$f); 
-                    } 
-                    else {
-                        $this->saldo = $this->saldo - 9.75;
-                        array_unshift(($this->viajes_realizados), new Viaje("Normal", 9.75, $Transporte->obtener_linea(),$f)); 
-                    }
-                }
-                else {
-                    if($this->plus <= 2) {
-                        $this->plus = $this->plus + 1;
-                        array_unshift(($this->viajes_realizados), new Viaje("Plus " .  ($this->plus+1), 9.75, $Transporte->obtener_linea(),$f));
+                    if($this->saldo > 9.75){
+                        if($this->plus > 0) {
+                            $this->saldo = $this->saldo - (9.75 + 9.75*$this->plus) ;
+                            array_unshift(($this->viajes_realizados), new Viaje("Normal", 9.75+9.75*$this->plus, $Transporte->obtener_linea()),$f); 
+                        } 
+                        else {
+                            $this->saldo = $this->saldo - 9.75;
+                            array_unshift(($this->viajes_realizados), new Viaje("Normal", 9.75, $Transporte->obtener_linea(),$f)); 
+                        }
                     }
                     else {
-                        print ("No puede realizar el viaje"); //no se me ocurre otra forma de hacerlo mejor si no pude realizar el viaje 
+                        if($this->plus <= 2) {
+                            $this->plus = $this->plus + 1;
+                            array_unshift(($this->viajes_realizados), new Viaje("Plus " .  ($this->plus+1), 9.75, $Transporte->obtener_linea(),$f));
+                        }
+                        else {
+                            print ("No puede realizar el viaje"); //no se me ocurre otra forma de hacerlo mejor si no pude realizar el viaje 
+                        }
                     }
-                }
-                
-                $this->ult_colectivo = $Transporte;
+                    $this->ult_colectivo = $Transporte;
                 }
             }
             $this->dia_colectivo = $fecha;    
